@@ -8,7 +8,7 @@ import CheckUserIsLoggedRoute from "./auth/components/CheckUserIsLoggedRoute";
 import { Toaster } from "react-hot-toast";
 import LoginPage from "./auth/pages/LoginPage";
 import SignUpPage from "./auth/pages/SignupPage";
-import HomePage from "./home/Pages/HomePage";
+import HomePage from "./home/pages/HomePage";
 import FindMatchPage from "./find_match/pages/FindMatchPage";
 import FindAllMatchesPage from "./find_match/pages/FindAllMatchesPage";
 import MatchDetailsPage from "./match_details/MatchDetailsPage";
