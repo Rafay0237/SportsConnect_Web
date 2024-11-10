@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bg-grid {
+    background-image: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.1) 1px,
+        transparent 1px
+      ),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .bg-grid-dark {
+    background-image: linear-gradient(
+        90deg,
+        rgba(142, 110, 248, 0.1) 1px,
+        transparent 1px
+      ),
+      linear-gradient(180deg, rgba(145, 112, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+}
+
+.form-input {
+  @apply p-1.5 px-2.5 bg-gray-100/70 border-b-2 border-gray-300 placeholder:text-gray-500 w-full outline-none focus:border-gray-500 transition duration-300;
+}
+
+
+@keyframes slide {
+  0% {
+    left: 5vh; 
+  }
+  50% {
+    left: 20vh; 
+  }
+  100% {
+    left: 5vh; 
+  }
+}
+
+.animate-slide {
+  animation: slide 6s ease-in-out infinite; 
+}
+
+
+@media (min-width: 100px) {
+  @keyframes slide {
+    0% {
+      left: 10vh; 
+    }
+    50% {
+      left: 25vh; 
+    }
+    100% {
+      left: 10vh; 
+    }
+  }
+}
