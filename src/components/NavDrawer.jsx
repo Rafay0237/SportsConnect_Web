@@ -27,7 +27,7 @@ function NavDrawer() {
 
       <div
         id="drawer-example"
-        className={`fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform bg-white ${
+        className={`fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform bg-gradient-to-l from-slate-800 to-[#121928] ${
           isDrawerOpen ? "translate-x-0" : "-translate-x-full"
         } w-80 dark:bg-gray-800`}
         tabIndex="-1"
@@ -39,7 +39,7 @@ function NavDrawer() {
           className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white"
         >
           <svg
-            className="w-5 h-5 text-black"
+            className="w-5 h-5 text-white"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -56,11 +56,11 @@ function NavDrawer() {
         </button>
         <div>
           <Link to="/">
-            <p className="font-semibold">Lawrencepur</p>
+            <p className="font-semibold mb-4">Sports Connect</p>
           </Link>
           <ul className=" text-left  font-semibold text-[16px] ">
             {navData.map((data, index) => (
-              <Link to={"/collections/" + data.link} key={index}>
+              <Link to={data.link} key={index}>
                 <li
                   className="relative group hover:cursor-pointer border-gray-100 border-b-2 py-3"
                   onClick={toggleDrawer}
