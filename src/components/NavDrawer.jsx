@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { RiMenuFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { navData } from "../assets/lib/navData";
@@ -14,6 +14,18 @@ function NavDrawer() {
     setIsDrawerOpen(false);
   };
 
+  useEffect(() => {
+    if (isDrawerOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    // Cleanup to reset overflow when the component unmounts
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isDrawerOpen]);
+
   return (
     <div className="relative text-center">
       <RiMenuFill className="h-6 w-6 cursor-pointer" onClick={toggleDrawer} />
@@ -27,7 +39,7 @@ function NavDrawer() {
 
       <div
         id="drawer-example"
-        className={`fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform bg-gradient-to-l from-slate-800 to-[#121928] ${
+        className={`fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform bg-gradient-to-b from-[#0E1C37] to-[#292929] ${
           isDrawerOpen ? "translate-x-0" : "-translate-x-full"
         } w-80 dark:bg-gray-800`}
         tabIndex="-1"

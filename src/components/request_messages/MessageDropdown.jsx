@@ -80,6 +80,18 @@ export default function MessageDropdown() {
     getUserRequests();
   }, []);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    // Cleanup to reset overflow when the component unmounts
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   return (
     <div className="relative">
       <button
