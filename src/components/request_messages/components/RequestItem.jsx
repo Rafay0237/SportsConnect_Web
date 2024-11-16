@@ -2,7 +2,7 @@ import {GiCrossMark, GiCheckMark} from "react-icons/gi";
 
 const RequestItem=({ request, onAccept, onDecline })=> {
     return (
-      <div className="px-4 py-2.5 hover:bg-gray-100 border-b">
+      <div className="mx-4 py-2.5 hover:bg-gray-100 border-b">
         <div className="flex">
           <img
             src={request.senderDp}
