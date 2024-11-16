@@ -12,9 +12,9 @@ import {
   DropdownItem,
 } from "@nextui-org/react";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { BiSolidMessageRoundedDots } from "react-icons/bi"
 import { useDispatch } from "react-redux";
 import { signOut } from "../redux/user/userSlice";
+import MessageDropdown from "./request_messages/MessageDropdown";
 
 const dropdownItems = [
   { title: "Profile", link: "/profile" },
@@ -58,7 +58,7 @@ const Navbar = () => {
           setSearchVisibility={setSearchVisibility}
         /> */}
         {/* <Link to="/messages"> */}
-        <BiSolidMessageRoundedDots className="size-6 text-white cursor-pointer"/>
+        <MessageDropdown/>
         {/* </Link> */}
         <div className="flex gap-4 sm:gap-8  items-center">
           {currentUser ? (
