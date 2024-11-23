@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  GiChatBubble,
-  GiPerspectiveDiceSixFacesThree,
-} from "react-icons/gi";
+import { GiChatBubble, GiPerspectiveDiceSixFacesThree } from "react-icons/gi";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../redux/store";
 import API from "../../services/Api";
@@ -11,8 +8,6 @@ import { userRequests } from "../../assets/lib/requestsData";
 import RequestItem from "./components/RequestItem";
 import DropdownMenu from "./components/DropdownMenu";
 import LoadingOverlay from "./components/LoadingOverlay";
-
-
 
 export default function MessageDropdown() {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,11 +34,14 @@ export default function MessageDropdown() {
   const handleAccept = async (id) => {
     setLoading(true);
     try {
-      const response = await API.put(
-        `request/${id}`,
-        { status: "accepted" },
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
+      // const response = await API.put(
+      //   `request/${id}`,
+      //   { status: "accepted" },
+      //   { headers: { Authorization: `Bearer ${token}` } }
+      // );
+      const response = await API.delete(`request/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       if (response.data.success) {
         setRequests((prev) => prev.filter((req) => req._id !== id));
         toast.success(response.data.message);
@@ -59,11 +57,14 @@ export default function MessageDropdown() {
   const handleDecline = async (id) => {
     setLoading(true);
     try {
-      const response = await API.put(
-        `request/${id}`,
-        { status: "declined" },
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
+      // const response = await API.put(
+      //   `request/${id}`,
+      //   { status: "declined" },
+      //   { headers: { Authorization: `Bearer ${token}` } }
+      // );
+      const response = await API.delete(`request/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       if (response.data.success) {
         setRequests((prev) => prev.filter((req) => req._id !== id));
         toast.success(response.data.message);
@@ -109,17 +110,21 @@ export default function MessageDropdown() {
         {requests.length === 0 ? (
           <div className="flex flex-col items-center justify-center min-h-60">
             <GiPerspectiveDiceSixFacesThree className="size-16 text-black" />
-            <p className="px-4 py-2 text-gray-700">No match requests, currently</p>
+            <p className="px-4 py-2 text-gray-700">
+              No match requests, currently
+            </p>
           </div>
         ) : (
-          requests.map((request) => (
-            <RequestItem
-              key={request._id}
-              request={request}
-              onAccept={handleAccept}
-              onDecline={handleDecline}
-            />
-          ))
+          <div className="overflow-y-auto max-h-[30rem] hide-scroll overflow-hidden">
+            {requests.map((request) => (
+              <RequestItem
+                key={request._id}
+                request={request}
+                onAccept={handleAccept}
+                onDecline={handleDecline}
+              />
+            ))}
+          </div>
         )}
         <LoadingOverlay loading={loading} />
       </DropdownMenu>

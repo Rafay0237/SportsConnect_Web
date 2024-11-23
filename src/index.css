@@ -28,6 +28,15 @@
   @apply p-1.5 px-2.5 bg-gray-100/70 border-b-2 border-gray-300 placeholder:text-gray-500 w-full outline-none focus:border-gray-500 transition duration-300;
 }
 
+.hide-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none; 
+}
+
+.hide-scroll::-webkit-scrollbar {
+  display: none; 
+}
+
 
 @keyframes slide {
   0% {
