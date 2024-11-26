@@ -2,7 +2,7 @@ Sports Connect App
 
 Sports Connect App is a platform designed to find sports matches and tournaments. Whether you're looking for friendly football or cricket matches, esports competitions like FIFA, teammates for your next game, or local tournaments to participate in, this app has you covered!
 
-Features
+Features                                                                                                                   
 🔍 Find Matches Near You
 Discover sports matches happening in your area, including football, cricket, and esports events like FIFA.
 Send friendly match requests to other players or teams.
@@ -22,7 +22,8 @@ Backend: Node.js, Express
 Database: MongoDB
 Hosting: Vercel (Frontend), AWS (Backend)
 Getting Started
-Prerequisites
+
+--Prerequisites--
 Ensure you have the following installed:
 
 Node.js (v16 or higher)
